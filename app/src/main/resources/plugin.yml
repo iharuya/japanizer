@@ -1,0 +1,7 @@
+name: Japanizer
+version: 1.0.0
+main: japanizer.App
+description: A plugin to Japanize chat messages. For example, "konnnichiwa" will be "こんにちは (konnnichiwa)".
+author: PaperMC
+website: https://papermc.io
+api-version: '1.20'
