@@ -1,7 +1,6 @@
 name: Japanizer
-version: 1.0.0
-main: japanizer.App
+version: 0.0.1
+main: github.iharuya.japanizer.Japanizer
 description: A plugin to Japanize chat messages. For example, "konnnichiwa" will be "こんにちは (konnnichiwa)".
-author: PaperMC
-website: https://papermc.io
-api-version: '1.20'
+api-version: 1.20
+loadbefore: [DiscordSRV]

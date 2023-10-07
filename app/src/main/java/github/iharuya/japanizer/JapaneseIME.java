@@ -1,4 +1,4 @@
-package japanizer;
+package github.iharuya.japanizer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,16 +21,16 @@ public class JapaneseIME {
   private static final String GOOGLE_IME_URL =
       "https://www.google.com/transliterate?langpair=ja-Hira|ja&text=";
 
-  public static String convert(String msg) {
+  public static String convert(String text) {
 
-    if (msg.length() == 0) {
+    if (text.length() == 0) {
       return "";
     }
 
     HttpURLConnection urlconn = null;
     BufferedReader reader = null;
     try {
-      String baseurl = GOOGLE_IME_URL + URLEncoder.encode(msg, "UTF-8");
+      String baseurl = GOOGLE_IME_URL + URLEncoder.encode(text, "UTF-8");
       String encode = "UTF-8";
       URL url = new URL(baseurl);
 

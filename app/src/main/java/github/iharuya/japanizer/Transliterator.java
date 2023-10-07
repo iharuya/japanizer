@@ -1,4 +1,4 @@
-package japanizer;
+package github.iharuya.japanizer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,50 +12,50 @@ public class Transliterator {
   /**
    * 日本語の音訳をする（ローマ字->普通の日本語）
    * 
-   * @param msg
+   * @param text
    * @param dictionary 変換対象外リスト
    * @return
    */
-  public static String japanize(String msg, Map<String, String> dictionary) {
+  public static String japanize(String text, Map<String, String> dictionary) {
 
-    if (!shouldJapanize(msg)) {
+    if (!shouldJapanize(text)) {
       return "";
     }
 
-    String msgWithoutUrl = msg.replaceAll(REGEX_URL, " ");
+    String textWithoutUrl = text.replaceAll(REGEX_URL, " ");
 
     // キーワードをロック 辞書にある部分は変換対象外にするため
     HashMap<String, String> keywordMap = new HashMap<String, String>();
     int index = 0;
-    String keywordLockedMsg = msgWithoutUrl;
+    String keywordLockedtext = textWithoutUrl;
     for (String dickey : dictionary.keySet()) {
-      if (keywordLockedMsg.contains(dickey)) {
+      if (keywordLockedtext.contains(dickey)) {
         index++;
         String key = "＜" + makeMultibytesDigit(index) + "＞";
-        keywordLockedMsg = keywordLockedMsg.replace(dickey, key);
+        keywordLockedtext = keywordLockedtext.replace(dickey, key);
         keywordMap.put(key, dictionary.get(dickey));
       }
     }
 
-    String japanizedMsg = RomeToKana.convert(keywordLockedMsg);
-    japanizedMsg = JapaneseIME.convert(japanizedMsg);
+    String japanizedtext = RomeToKana.convert(keywordLockedtext);
+    japanizedtext = JapaneseIME.convert(japanizedtext);
 
     // キーワードのアンロック
     for (String key : keywordMap.keySet()) {
-      japanizedMsg = japanizedMsg.replace(key, keywordMap.get(key));
+      japanizedtext = japanizedtext.replace(key, keywordMap.get(key));
     }
 
-    return japanizedMsg.trim();
+    return japanizedtext.trim();
   }
 
   /**
    * 日本語化が必要かどうかを判定する
    * 
-   * @param msg
+   * @param text
    * @return
    */
-  private static boolean shouldJapanize(String msg) {
-    return (msg.getBytes().length == msg.length() && !msg.matches("[ \\uFF61-\\uFF9F]+"));
+  private static boolean shouldJapanize(String text) {
+    return (text.getBytes().length == text.length() && !text.matches("[ \\uFF61-\\uFF9F]+"));
   }
 
   /**

@@ -30,7 +30,7 @@ java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
 
 application {
   // Define the main class for the application.
-  mainClass.set("japanizer.App")
+  mainClass.set("github.iharuya.japanizer.Japanizer")
 }
 
 tasks.named<Test>("test") {
