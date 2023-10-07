@@ -3,6 +3,7 @@ plugins {
   application
 
   id("xyz.jpenilla.run-paper") version "2.2.0"
+  id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
@@ -36,6 +37,5 @@ application {
 tasks.named<Test>("test") {
   // Use JUnit Platform for unit tests.
   useJUnitPlatform()
-}
 
-tasks { runServer { minecraftVersion("1.20.2") } }
+}
