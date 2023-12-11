@@ -1,2 +1,2 @@
 rootProject.name = "japanizer"
-include("common", "paper")
+include("common", "paper", "velocity")

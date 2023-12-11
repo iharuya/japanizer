@@ -1,7 +1,7 @@
 plugins {
   id("java")
   id("application")
-  id("xyz.jpenilla.run-paper") version "2.2.2"
+  id("xyz.jpenilla.run-velocity") version "2.2.2"
   id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
@@ -11,18 +11,19 @@ repositories {
 
 dependencies {
   implementation(project(":common"))
-  compileOnly("io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT")
+  compileOnly("com.velocitypowered:velocity-api:3.2.0-SNAPSHOT")
+  annotationProcessor("com.velocitypowered:velocity-api:3.2.0-SNAPSHOT")
 }
 
 java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
 
 application {
-  mainClass.set("github.iharuya.japanizer.paper.Japanizer")
+  mainClass.set("github.iharuya.japanizer.velocity.Japanizer")
 }
 
 tasks {
-  runServer {
-    minecraftVersion("1.20.2")
+  runVelocity {
+    velocityVersion("3.2.0-SNAPSHOT")
   }
 
   jar {
