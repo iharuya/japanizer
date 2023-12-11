@@ -16,7 +16,7 @@ public class RomeToKana {
 
   static {
     ImmutableSortedMap.Builder<String, String> builder = ImmutableSortedMap.reverseOrder();
-    // TBD - 大文字入力対応
+    // UNIMPLEMENTED - 大文字入力対応
     
     builder.put("a", "あ");
     builder.put("i", "い").put("yi", "い");

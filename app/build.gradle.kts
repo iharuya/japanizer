@@ -2,7 +2,7 @@ plugins {
   // Apply the application plugin to add support for building a CLI application in Java.
   application
 
-  id("xyz.jpenilla.run-paper") version "2.2.0"
+  id("xyz.jpenilla.run-paper") version "2.2.2"
 }
 
 repositories {
@@ -38,6 +38,13 @@ tasks.named<Test>("test") {
   useJUnitPlatform()
 }
 
-tasks.jar {
-  archiveFileName.set("japanizer.jar")
+tasks {
+  runServer {
+    minecraftVersion("1.20.2")
+  }
+  
+  //  build/libs/japanizer.jarを生成
+  jar {
+    archiveFileName.set("japanizer.jar")
+  }
 }

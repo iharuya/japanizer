@@ -1,6 +1,5 @@
 package github.iharuya.japanizer;
 
-import java.util.Collections;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,16 +29,19 @@ public class Japanizer extends JavaPlugin implements Listener {
     final Player player = event.getPlayer();
 
     if (text.startsWith("!")) {
-      this.getServer().broadcast(Utils.addPlayerPrefix(player, text.substring(1)));
-      return;
+      message = Component.text(text.substring(1));
+    } else {
+      final String japanizedText = Transliterator.japanize(text);
+      if (japanizedText == text) {
+        message = Component.text(text);
+      } else {
+        message = Component.text().content(japanizedText).appendSpace()
+            .append(Component.text().content("(" + text + ")").color(NamedTextColor.GRAY)
+                .decoration(TextDecoration.ITALIC, true))
+            .build();
+      }
     }
 
-    final String japanizedText = Transliterator.japanize(text, Collections.emptyMap());
-    if (japanizedText.length() == 0)
-      return;
-    message =
-        Component.text().content(japanizedText).appendSpace().append(Component.text().content("(" + text + ")")
-            .color(NamedTextColor.GRAY).decoration(TextDecoration.ITALIC, true)).build();
     this.getServer().broadcast(Utils.addPlayerPrefix(player, message));
   }
 }
