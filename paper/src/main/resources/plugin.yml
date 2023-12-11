@@ -1,0 +1,6 @@
+name: Japanizer
+version: 0.0.2
+main: github.iharuya.japanizer.paper.Japanizer
+description: paper mc plugin to Japanize chat messages. For example, "konnnichiwa" will be "こんにちは (konnnichiwa)".
+api-version: 1.20
+loadbefore: []

@@ -1,7 +1,12 @@
-plugins {
-    // Apply the foojay-resolver plugin to allow automatic download of JDKs
-    id("org.gradle.toolchains.foojay-resolver-convention") version "0.4.0"
+pluginManagement {
+  repositories.gradlePluginPortal()
+  includeBuild("build-logic")
+}
+
+dependencyResolutionManagement {
+  repositories.mavenCentral()
+  includeBuild(".")
 }
 
 rootProject.name = "japanizer"
-include("app")
+include("common", "paper")

@@ -1,4 +1,4 @@
-package github.iharuya.japanizer;
+package github.iharuya.japanizer.common;
 
 /**
  * 音訳を行う

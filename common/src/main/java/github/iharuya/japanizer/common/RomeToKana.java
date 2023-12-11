@@ -1,4 +1,4 @@
-package github.iharuya.japanizer;
+package github.iharuya.japanizer.common;
 
 import java.util.Map;
 import org.apache.commons.lang3.StringUtils;

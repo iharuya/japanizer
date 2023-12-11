@@ -1,4 +1,4 @@
-package github.iharuya.japanizer;
+package github.iharuya.japanizer.common;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package github.iharuya.japanizer;
+package github.iharuya.japanizer.paper;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -10,6 +10,7 @@ import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.plugin.java.JavaPlugin;
+import github.iharuya.japanizer.common.Transliterator;
 
 public class Japanizer extends JavaPlugin implements Listener {
 

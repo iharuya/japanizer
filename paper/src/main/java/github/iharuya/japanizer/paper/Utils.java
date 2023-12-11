@@ -1,4 +1,4 @@
-package github.iharuya.japanizer;
+package github.iharuya.japanizer.paper;
 
 import org.bukkit.entity.Player;
 import net.kyori.adventure.text.Component;
