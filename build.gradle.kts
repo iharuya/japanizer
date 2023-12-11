@@ -6,3 +6,11 @@ allprojects {
   }
 }
 
+subprojects {
+    apply(plugin = "java")
+    // group = "org.gradle.sample"
+    // version = "1.0"
+    repositories {
+      mavenCentral()
+    }
+}

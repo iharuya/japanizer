@@ -1,21 +1,19 @@
 plugins {
-  id("github.iharuya.japanizer.java-library")
+  id("java")
+  id("java-library")
 }
 
 dependencies {
-  // Use JUnit Jupiter for testing.
+  testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
   implementation("com.google.guava:guava:32.1.1-jre")
   implementation("org.apache.commons:commons-lang3:3.14.0")
   implementation("com.google.code.gson:gson:2.7")
 }
 
-// java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
+java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
 
-// application {
-//   mainClass.set("github.iharuya.japanizer.common.Transliterator")
-// }
-
-// tasks.named<Test>("test") {
-//   // Use JUnit Platform for unit tests.
-//   useJUnitPlatform()
-// }
+tasks.named<Test>("test") {
+  useJUnitPlatform()
+}
